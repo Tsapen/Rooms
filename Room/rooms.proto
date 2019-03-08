@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+// protoc --go_out=plugins=grpc:. *.proto
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.routeguide";
+option java_outer_classname = "RouteGuideProto";
+
+package main;
+
+message Session {
+    string login = 1;
+    string room = 2;
+}
+
+message Mess {
+    string mess = 1;
+}
+
+message Nothing {
+  bool dummy = 1;
+}
+
+service RS {
+    rpc Subscribe (Nothing) returns (Nothing) {}
+    rpc Publish (stream Mess) returns (stream Mess) {}
+}
+
