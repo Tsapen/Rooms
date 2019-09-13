@@ -22,7 +22,7 @@ message Nothing {
 }
 
 service RS {
-    rpc Subscribe (Nothing) returns (Nothing) {}
+    rpc Subscribe (Nothing) returns (Mess) {}
     rpc Publish (stream Mess) returns (stream Mess) {}
 }
 
